@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta chrset="UTF 8">
+    <title>Event Registration</title>
+</head>
+<body>
+
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <h1> Filters in angular js</h1>
+<div ng-app="DemoApp" ng-controller="DemoController">
+    Tutorial Name : <input type="text" ng-model="tutorialName" ng-init="tutorialID=23.3333343;tutorialprice=234"><br>
+    <br>
+    This tutorial is {{tutorialName | lowercase}}
+	<br>
+	This tutorial is {{tutorialName | uppercase}}
+	<br>
+	This tutorialID is {{tutorialID | number:2}}
+	<br>
+	This tutorial Price is {{tutorialprice | currency}}
+	<br>
+	This tutorial is {{tutorial | json}}
+</div>
+<script type="text/javascript">
+    var app = angular.module('DemoApp',[]);
+    app.controller('DemoController',function($scope){
+
+        $scope.tutorialName ="Angular JS";
+		$scope.tutorial ={TutorialID:12,tutorialName:"Angular"};
+    });
+</script>
+
+</body>
+</html>

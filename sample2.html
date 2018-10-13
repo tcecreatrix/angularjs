@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta chrset="UTF 8">
+    <title>Event Registration</title>
+<script data-require="angular.js@*" data-semver="1.3.5" src="https://code.angularjs.org/1.3.5/angular.js"></script>
+    <script data-require="angular-route@*" data-semver="1.3.5" src="https://code.angularjs.org/1.3.5/angular-route.js"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+</head>
+<body ng-app="sampleApp">
+
+<h1> Multiple views</h1>
+
+<div class="container">
+    <ul><li><a href="#/NewEvent"> Add New Event</a></li>
+        <li><a href="#/DisplayEvent"> Display Event</a></li>
+    </ul>
+    <div ng-view></div>
+</div>
+
+<script>
+    var app = angular.module('sampleApp',["ngRoute"]);
+    app.config(function($routeProvider){
+        $routeProvider.
+        when("/NewEvent",{
+            templateUrl : "add_event.html",
+            controller: "AddEventController"
+        }).
+        when("/DisplayEvent", {
+            templateUrl: "show_event.html",
+            controller: "ShowDisplayController"
+        }).
+        otherwise ({
+            redirectTo: '/DisplayEvent'
+        });
+    });
+    app.controller("AddEventController", function($scope) {
+
+		//alert('came');
+        $scope.message = "This is to Add a new Event";
+
+    });
+    app.controller("ShowDisplayController",function($scope){
+
+        $scope.message = "This is display an Event";
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+	"bird":[
+	{
+	"ID":"001",
+	"Name":"crow",
+	"Type":"black"
+	},
+	{
+	"ID":"002",
+	"Name":"pigeon",
+	"Type":"grey"
+	}
+	]
+}
